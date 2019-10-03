@@ -7,7 +7,7 @@ from setuptools import setup, find_packages
 here = os.path.abspath(os.path.dirname(__file__))
 
 requires = [
-    "SQLAlchemy==1.2.7",
+    "SQLAlchemy>=1.3.0",
     "transaction",
     "zope.sqlalchemy",
     "Click",
