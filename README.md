@@ -1,10 +1,6 @@
 # Record Keeper
 Keep track of records written to offline storage media.
 
-## TODO
-
-* Support for searching all listings and displaying matched files and catalogs
-
 ## Setup
 
 ```bash

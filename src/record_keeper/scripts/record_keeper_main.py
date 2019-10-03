@@ -129,3 +129,22 @@ def list(catalog):  # noqa
                 + r.volume_label.ljust(40, " ")
                 + r.timestamp.date().isoformat().ljust(10, " ")
             )
+
+
+@cli.command()
+@click.argument("search")
+def search(search):  # noqa
+    """
+    Search catalog listings.
+
+    \b
+    Examples
+        record_keeper search "%man%"
+        record_keeper search "Honest %"
+    """
+    q = app.db.query(models.Listing).filter(models.Listing.path.ilike(search))
+    click.secho("Catalog ID".ljust(25, " ") + "Path", bold=True)
+    click.secho("-" * 75, bold=True)
+
+    for r in q:
+        click.secho(r.catalog_id.ljust(25, " ") + r.path)
